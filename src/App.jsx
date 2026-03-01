@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 
 // ─── STYLES ─────────────────────────────────────────────────────────────────
@@ -687,13 +686,22 @@ const styles = `
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const programs = [
-  { icon: "📊", title: "Business Management", desc: "Comprehensive training in strategic planning, finance, and organizational leadership for modern business environments.", duration: "12 Months" },
-  { icon: "🏛️", title: "Public Administration", desc: "Develop skills for governance, policy analysis, and effective management of public sector institutions.", duration: "18 Months" },
-  { icon: "📈", title: "Project Management", desc: "Master the methodologies and tools needed to lead projects from inception to successful completion.", duration: "9 Months" },
-  { icon: "🤝", title: "Human Resources", desc: "Learn to attract, retain, and develop talent while building a healthy organizational culture.", duration: "12 Months" },
-  { icon: "💻", title: "Digital Transformation", desc: "Navigate the intersection of technology and business strategy to drive innovation and growth.", duration: "6 Months" },
-  { icon: "🌍", title: "International Affairs", desc: "Gain perspective on global systems, diplomacy, and cross-cultural management practices.", duration: "24 Months" },
+// ✏️ DIPLOMA PROGRAMS — edit this array to change diploma program listings
+const diplomaPrograms = [
+  { icon: "📊", title: "National Diploma in Business Management", desc: "Comprehensive training in strategic planning, finance, and organizational leadership for modern business environments.", duration: "2 years" },
+  { icon: "🏛️", title: "National Diploma in Public Administration", desc: "Develop skills for governance, policy analysis, and effective management of public sector institutions.", duration: "2 years" },
+  { icon: "📈", title: "National Diploma in Project Planning and Management", desc: "Master the methodologies and tools needed to lead projects from inception to successful completion.", duration: "2 years" },
+  { icon: "🤝", title: "National Diploma in Human Resources", desc: "Learn to attract, retain, and develop talent while building a healthy organizational culture.", duration: "2 years" },
+  { icon: "💻", title: "National Diploma in  information and communication Tec", desc: "Navigate the intersection of technology and business strategy to drive innovation and growth.", duration: "2 years" },
+];
+
+// ✏️ CERTIFICATE PROGRAMS — edit this array to change certificate program listings
+const certificatePrograms = [
+  { icon: "📊", title: "Certificate  Management", desc: "Foundational training in strategic planning, finance, and organizational leadership.", duration: "1 year" },
+  { icon: "🏛️", title: "Certificate in Public Administration", desc: "Core skills for governance, policy analysis, and public sector management.", duration: "1 year" },
+  { icon: "📈", title: "Certificate in Project Management", desc: "Essential methodologies and tools to lead projects from inception to completion.", duration: "1 year" },
+  { icon: "🤝", title: "Certificate in Human Resources", desc: "Key principles for attracting, retaining, and developing organizational talent.", duration: "1 year" },
+  { icon: "💻", title: "Certificate in Digital Transformation", desc: "Core skills at the intersection of technology and business strategy.", duration: "1 year" },
 ];
 
 const team = [
@@ -715,6 +723,9 @@ const posts = [
   { platform: "LinkedIn", author: "Pace Management", initials: "PM", text: "We're proud to announce our partnership with Uganda Investment Authority. This collaboration will open new internship pathways for our students in finance and governance. #Leadership #Kampala", time: "Yesterday" },
   { platform: "Facebook", author: "Pace Management", initials: "PM", text: "Our graduates are making waves! Congratulations to the Class of 2025 — 94% employment rate within 6 months of completing their programs. Your success is our purpose. 🌟", time: "3 days ago" },
 ];
+
+
+
 
 // ─── COMPONENTS ─────────────────────────────────────────────────────────────
 
@@ -798,9 +809,9 @@ function Footer({ setActivePage }) {
         <div>
           <div className="footer-heading">Contact</div>
           <ul className="footer-links">
-            <li><button>Plot 14, Kampala Rd</button></li>
-            <li><button>Kampala, Uganda</button></li>
-            <li><button>+256 700 123 456</button></li>
+            <li><button>Plot 14, Sir Samuel Rd</button></li>
+            <li><button>Gulu, Uganda</button></li>
+            <li><button>+256 7777360712</button></li>
             <li><button>info@pacemanagement.ug</button></li>
           </ul>
         </div>
@@ -826,7 +837,7 @@ function HomePage({ setActivePage }) {
           <div>
             <div className="hero-badge fade-up">✦ Accredited Excellence in Management</div>
             <h1 className="hero-title fade-up delay-1">
-              Shape the Future of <span>African Business</span> Leadership
+              Shape the Future of <span>Northern Business</span> Leadership
             </h1>
             <p className="hero-desc fade-up delay-2">
               Pace Management Institution equips professionals with the strategic skills, networks, and credentials to lead organizations across Uganda and beyond.
@@ -836,14 +847,16 @@ function HomePage({ setActivePage }) {
               <button className="btn-outline" onClick={() => setActivePage("Programs")}>Explore Programs</button>
             </div>
             <div className="hero-stats fade-up delay-4">
-              <div><div className="stat-num">1,200+</div><div className="stat-label">Graduates</div></div>
-              <div><div className="stat-num">94%</div><div className="stat-label">Employment Rate</div></div>
-              <div><div className="stat-num">15+</div><div className="stat-label">Years Excellence</div></div>
+              <div><div className="stat-num">200+</div><div className="stat-label">Graduates</div></div>
+              <div><div className="stat-num">20%</div><div className="stat-label">Employment Rate</div></div>
+              <div><div className="stat-num">7+</div><div className="stat-label">Years Excellence</div></div>
             </div>
           </div>
+
+          {/* Diploma Programs Card */}
           <div className="hero-card fade-up delay-2">
-            <h3>Our Programs at a Glance</h3>
-            {programs.map(p => (
+            <h3>Our Diploma Programs at a Glance</h3>
+            {diplomaPrograms.map(p => (
               <span key={p.title} className="program-tag">{p.icon} {p.title}</span>
             ))}
             <div style={{ marginTop: "1.5rem", padding: "1rem", background: "rgba(201,168,76,0.08)", borderRadius: "10px", border: "1px solid rgba(201,168,76,0.15)" }}>
@@ -851,6 +864,19 @@ function HomePage({ setActivePage }) {
               <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", marginTop: "4px" }}>March 2026 • Applications close Feb 28</div>
             </div>
           </div>
+
+          {/* Certificate Programs Card */}
+          <div className="hero-card fade-up delay-2">
+            <h3>Our Certificate Programs at a Glance</h3>
+            {certificatePrograms.map(p => (
+              <span key={p.title} className="program-tag">{p.icon} {p.title}</span>
+            ))}
+            <div style={{ marginTop: "1.5rem", padding: "1rem", background: "rgba(201,168,76,0.08)", borderRadius: "10px", border: "1px solid rgba(201,168,76,0.15)" }}>
+              <div style={{ color: "var(--gold-light)", fontSize: "0.82rem", fontWeight: 600 }}>🗓 Next Intake</div>
+              <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", marginTop: "4px" }}>March 2026 • Applications close Feb 28</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -893,7 +919,7 @@ function HomePage({ setActivePage }) {
             <p className="section-desc" style={{ margin: "0 auto" }}>Industry-aligned curricula designed with input from leading employers across East Africa.</p>
           </div>
           <div className="programs-grid">
-            {programs.slice(0, 3).map(p => (
+            {diplomaPrograms.slice(0, 3).map(p => (
               <div key={p.title} className="program-card">
                 <div className="program-icon">{p.icon}</div>
                 <h3>{p.title}</h3>
@@ -972,10 +998,33 @@ function ProgramsPage({ setActivePage }) {
           </p>
         </div>
       </section>
+
+      {/* Diploma Programs */}
       <section className="programs-section">
         <div className="container">
+          <div className="section-label">Diploma Programs</div>
+          <h2 className="section-title">National Diplomas</h2>
           <div className="programs-grid">
-            {programs.map(p => (
+            {diplomaPrograms.map(p => (
+              <div key={p.title} className="program-card">
+                <div className="program-icon">{p.icon}</div>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <div className="program-dur">📅 {p.duration}</div>
+                <button className="btn-primary" style={{ marginTop: "1.2rem", width: "100%", fontSize: "0.82rem", padding: "0.65rem 1rem" }} onClick={() => setActivePage("Apply")}>Apply for This Program</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certificate Programs */}
+      <section style={{ background: "var(--white)" }}>
+        <div className="container">
+          <div className="section-label">Certificate Programs</div>
+          <h2 className="section-title">Professional Certificates</h2>
+          <div className="programs-grid">
+            {certificatePrograms.map(p => (
               <div key={p.title} className="program-card">
                 <div className="program-icon">{p.icon}</div>
                 <h3>{p.title}</h3>
@@ -1103,6 +1152,9 @@ function ApplyPage() {
 
   const update = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
+  // Combine both program lists for the dropdown
+  const allPrograms = [...diplomaPrograms, ...certificatePrograms];
+
   const steps = ["Personal Info", "Program Choice", "Background", "Submit"];
 
   const stepContent = [
@@ -1136,7 +1188,12 @@ function ApplyPage() {
         <label>Program of Interest <span className="required">*</span></label>
         <select value={form.program} onChange={e => update("program", e.target.value)}>
           <option value="">Choose a program</option>
-          {programs.map(p => <option key={p.title}>{p.title}</option>)}
+          <optgroup label="── Diploma Programs ──">
+            {diplomaPrograms.map(p => <option key={p.title}>{p.title}</option>)}
+          </optgroup>
+          <optgroup label="── Certificate Programs ──">
+            {certificatePrograms.map(p => <option key={p.title}>{p.title}</option>)}
+          </optgroup>
         </select>
       </div>
       <div className="form-row">
